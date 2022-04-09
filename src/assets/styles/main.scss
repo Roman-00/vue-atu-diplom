@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+@import 'variables';
+@import 'mixins';
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+*, *::before, *::after, *:active, *:focus, *:hover {
+	outline: 0;
+	outline-offset: 0;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+	width: $max-size;
+	max-width: 100%;
+	margin: 0 auto;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+// Анимация
+
+.fade-enter-active, .fade-leave-active {
+	transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
