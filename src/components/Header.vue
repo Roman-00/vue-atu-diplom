@@ -53,6 +53,7 @@ function goBack() {
         text-align: center;
         transform: translateY(-50%);
         color: $text-blue-color;
+        z-index: -1;
     }
 
     &__button-go-back {

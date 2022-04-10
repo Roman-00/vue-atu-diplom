@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import PreviewModal from '@/components/PreviewModal.vue';
 
-const showPreviewModal = ref(false);
+const showPreviewModal = ref(true);
 </script>
 
 <template>
@@ -23,19 +23,21 @@ const showPreviewModal = ref(false);
                     class="auth-page__illustration"
                 />
 
-                <router-link
-                    to="/signup"
-                    class="auth-page__link"
-                >
-                    Зарегистрироваться
-                </router-link>
+                <div class="auth-page__liks">
+                    <router-link
+                        to="/signup"
+                        class="auth-page__link"
+                    >
+                        Зарегистрироваться
+                    </router-link>
 
-                <router-link
-                    to="/login"
-                    class="auth-page__link"
-                >
-                    Войти
-                </router-link>
+                    <router-link
+                        to="/login"
+                        class="auth-page__link"
+                    >
+                        Войти
+                    </router-link>
+                </div>
             </div>
             <PreviewModal
                 v-if="showPreviewModal"
@@ -50,7 +52,9 @@ const showPreviewModal = ref(false);
     &__content {
         display: flex;
         flex-direction: column;
-        padding: 20px 0;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 90vh;
     }
 
     &__figure {
@@ -59,17 +63,22 @@ const showPreviewModal = ref(false);
         justify-content: center;
         max-width: 250px;
         margin: 0 auto;
+        padding-top: 20px;
     }
 
     &__illustration {
         width: 100%;
         max-width: 250px;
-        margin: 60px auto;
         text-align: center;
+    }
+
+    &__liks {
+        width: 100%;
     }
 
     &__link {
         display: block;
+        width: 100%;
         margin-bottom: 24px;
         padding: 12px;
         font-size: 1rem;
