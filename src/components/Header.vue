@@ -1,17 +1,30 @@
 <script setup>
-import User from '@/components/User.vue';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const title = computed(() => route.name);
+const isShowButton = computed(() => route.path !== '/');
+
+/**
+ * Кнопка вернуться назад
+ */
+function goBack() {
+    window.history.back();
+}
 </script>
 
 <template>
     <header class="header">
-        <User />
-
-        <button class="header__button-logout">
-            <i class="header__button-logout-icon"></i>
-            <span class="header__button-logout-text">
-                Выйти
-            </span>
-        </button>
+        <button
+            v-if="isShowButton"
+            class="header__button-go-back"
+            @click="goBack"
+        />
+        <h2 class="header__title">
+            {{ title }}
+        </h2>
     </header>
 </template>
 
@@ -23,32 +36,34 @@ import User from '@/components/User.vue';
     right: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 20px 60px;
-    background: $blue-primary;
+    width: 100%;
+    min-height: 52px;
+    padding: 10px 20px;
+    background: $white;
 
-    &__button-logout {
+    &__title {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        font-size: 1rem;
+        font-weight: $font-bold;
+        line-height: 24px;
+        text-align: center;
+        transform: translateY(-50%);
+        color: $text-blue-color;
+    }
+
+    &__button-go-back {
         @include reset-button;
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: transparent;
-    }
-
-    &__button-logout-icon {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 5px;
-        background: url('../assets/icons/logout.svg') no-repeat center center / cover;
-    }
-
-    &__button-logout-text {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: $font-normal;
-        line-height: 20px;
-        color: $white;
+        width: 32px;
+        height: 32px;
+        border-radius: $radius-full;
+        background: $white-smoke url('../assets/icons/arrow-left.svg') no-repeat center center;
+        background-size: 60%;
+        cursor: pointer;
     }
 }
 </style>

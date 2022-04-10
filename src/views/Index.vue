@@ -1,11 +1,5 @@
-<script setup>
-import Header from '@/components/Header.vue';
-import News from '@/components/News.vue';
-</script>
+<script setup></script>
 
 <template>
-    <div class="home">
-        <Header />
-        <News/>
-    </div>
+    321
 </template>

@@ -1,64 +1,85 @@
 <script setup>
 import { ref } from 'vue';
-import LogIn from '@/components/LogIn.vue';
-import SignUp from '@/components/SignUp.vue';
+import PreviewModal from '@/components/PreviewModal.vue';
 
-const showForm = ref(false);
+const showPreviewModal = ref(false);
 </script>
 
 <template>
-    <div class="auth-block">
-        <div class="auth-block__wrapper">
-            <LogIn v-if="showForm"/>
-            <SignUp v-else/>
-        </div>
+    <div class="auth-page">
+        <div class="container">
+            <div class="auth-page__content">
+                <figure class="auth-page__figure">
+                    <img
+                        src="@/assets/images/logo-atu-edu.png"
+                        alt="Atu University"
+                        class="auth-page__figure-logo"
+                    />
+                </figure>
 
-        <button
-            class="auth-block__exchange-form"
-            @click="showForm = !showForm"
-        >
-            {{ showForm ? 'Зарегистрироваться' : 'Войти'  }}
-        </button>
+                <img
+                    src="@/assets/images/auth.jpg"
+                    alt="Illustration Auth Page"
+                    class="auth-page__illustration"
+                />
+
+                <router-link
+                    to="/signup"
+                    class="auth-page__link"
+                >
+                    Зарегистрироваться
+                </router-link>
+
+                <router-link
+                    to="/login"
+                    class="auth-page__link"
+                >
+                    Войти
+                </router-link>
+            </div>
+            <PreviewModal
+                v-if="showPreviewModal"
+                v-model:showPreviewModal="showPreviewModal"
+            />
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.auth-block {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 20px;
-    padding: 20px;
-    border-radius: $radius-medium;
-    background: $white;
-
-    &__exchange-form {
-        @include reset-button;
-
-        position: relative;
-        display: block;
-        margin: 16px auto 0;
-        padding-bottom: 5px;
-        text-align: center;
-        color: $blue-primary;
-
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 1px;
-            background: $blue-primary;
-        }
+.auth-page {
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
     }
-}
 
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-    opacity: 0;
+    &__figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    &__illustration {
+        width: 100%;
+        max-width: 250px;
+        margin: 60px auto;
+        text-align: center;
+    }
+
+    &__link {
+        display: block;
+        margin-bottom: 24px;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: $font-medium;
+        line-height: 26px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: $radius-medium;
+        background-color: $yellow-primary;
+        color: $text-blue-color;
+    }
 }
 </style>
