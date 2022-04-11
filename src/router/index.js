@@ -8,6 +8,16 @@ const routes = [
         component: Auth,
     },
     {
+        path: '/index',
+        name: 'Главная',
+        component: () => import('../views/Index.vue'),
+    },
+    {
+        path: '/signup',
+        name: 'Зарегистрировать аккаунт',
+        component: () => import('../views/SignUp.vue'),
+    },
+    {
         path: '/login',
         name: 'Войти в Аккаунт',
         // route level code-splitting

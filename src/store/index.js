@@ -1,4 +1,6 @@
 import { createStore } from 'vuex';
+import preview from './preview';
+import news from './news';
 
 export default createStore({
     state: {
@@ -8,5 +10,7 @@ export default createStore({
     actions: {
     },
     modules: {
+        preview,
+        news,
     },
 });

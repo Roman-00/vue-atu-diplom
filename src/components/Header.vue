@@ -1,11 +1,9 @@
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-
-const title = computed(() => route.name);
-const isShowButton = computed(() => route.path !== '/');
+// eslint-disable-next-line no-undef
+defineProps({
+    isShowButton: Boolean,
+    title: String,
+});
 
 /**
  * Кнопка вернуться назад
@@ -25,6 +23,8 @@ function goBack() {
         <h2 class="header__title">
             {{ title }}
         </h2>
+
+        <div class="header__block-bg" />
     </header>
 </template>
 
@@ -40,6 +40,7 @@ function goBack() {
     min-height: 52px;
     padding: 10px 20px;
     background: $white;
+    z-index: 99;
 
     &__title {
         position: absolute;
@@ -65,6 +66,18 @@ function goBack() {
         background: $white-smoke url('../assets/icons/arrow-left.svg') no-repeat center center;
         background-size: 60%;
         cursor: pointer;
+    }
+
+    &__block-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-height: 100%;
+        border-radius: 0 0 $radius-large $radius-large;
+        background: $lavender;
+        z-index: -2;
     }
 }
 </style>

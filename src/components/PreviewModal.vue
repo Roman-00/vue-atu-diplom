@@ -1,45 +1,47 @@
 <script setup>
+import { onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 import {
     Carousel, Slide, Pagination, Navigation,
 } from 'vue3-carousel';
-
+import { setCookie, getCookie } from '@/common/cookies';
 import 'vue3-carousel/dist/carousel.css';
 
+const store = useStore();
+
 // eslint-disable-next-line no-undef
-defineProps({
+const props = defineProps({
     showPreviewModal: Boolean,
 });
 
 // eslint-disable-next-line no-undef
 const emit = defineEmits(['update:showPreviewModal']);
 
-const listSwipe = [
-    {
-        title: '&#128400; Привет Друг!',
-        text: 'Добро пожаловать! В Алматинский Технологический Университет. Листай дальше и узнаешь много нового',
-        images: 'https://firebasestorage.googleapis.com/v0/b/my-atu-edu-app.appspot.com/o/images-preview.jpg?alt=media&token=fce6b37f-7fd7-4628-a46b-70222fb9583f',
-        button: '&#128400; Привет Друг!',
-    },
-    {
-        title: '&#128214; Расписание',
-        text: 'Теперь не нужно заходить на сайт и открывать много вкладок, с данным приложением все делается в 2 клика',
-        images: 'https://firebasestorage.googleapis.com/v0/b/my-atu-edu-app.appspot.com/o/images-preview-2.jpg?alt=media&token=704e7806-0023-4f55-9e28-24a3a12302ca',
-        button: 'Закрыть',
-    },
-    {
-        title: '📰 Новости',
-        text: 'Новости Университета всегда в твоих руках, будешь узнавать все первым &#128521;',
-        images: 'https://firebasestorage.googleapis.com/v0/b/my-atu-edu-app.appspot.com/o/images-preview-3.jpg?alt=media&token=cdc8cc22-d00c-4bbd-8c9e-c893f902dcf7',
-        button: 'Закрыть',
-    },
-];
+onMounted(() => {
+    store.dispatch('getPreview');
+});
+
+const listSwipe = computed(() => store.getters.previews);
+const isShowPreview = computed(() => !getCookie('preview'));
+
+/**
+ * Закрываем превьюшку
+ */
+function closePreviewModal() {
+    emit('update:showPreviewModal', !props.showPreviewModal);
+    setCookie('preview', 'hidden', { secure: true });
+}
 </script>
 
 <template>
     <transition name="modal">
-        <div class="preview-modal">
+        <div
+            v-if="isShowPreview"
+            class="preview-modal"
+        >
             <div class="preview-modal__content">
                 <carousel
+                    v-if="listSwipe.length > 0"
                     :items-to-show="1"
                     :wrapAround="true"
                     class="preview-modal__carousel"
@@ -52,7 +54,7 @@ const listSwipe = [
                             <button
                                 class="preview-modal__carousel-card-label"
                                 v-html="slide.button"
-                                @click="emit('update:showPreviewModal', !showPreviewModal)"
+                                @click="closePreviewModal"
                             />
 
                             <img
