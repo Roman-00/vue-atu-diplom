@@ -1,16 +1,47 @@
+<script setup>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+
+const store = useStore();
+const router = useRouter();
+
+const email = ref('');
+const password = ref('');
+
+const formData = {
+    email,
+    password,
+};
+
+/**
+ * Отправляем данные с формы авторизации в firebase
+ */
+async function postFormData() {
+    try {
+        await store.dispatch('login', formData);
+        router.push('/index');
+    } catch (e) {
+        console.log(e);
+    }
+}
+</script>
+
 <template>
     <form
         class="form-login"
-        @submit.prevent=""
+        @submit.prevent="postFormData"
     >
         <div class="form-login__group-input">
             <input
+                v-model="email"
                 type="email"
                 class="form-login__input"
                 placeholder="Введите Email"
             />
 
             <input
+                v-model="password"
                 type="password"
                 class="form-login__input"
                 placeholder="Введите пароль"

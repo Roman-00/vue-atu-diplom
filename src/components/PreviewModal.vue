@@ -95,6 +95,7 @@ function closePreviewModal() {
     width: 100%;
     min-height: 100%;
     background: $white;
+    z-index: 100;
 
     &__content {
         position: relative;

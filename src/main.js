@@ -9,13 +9,14 @@ import 'firebase/auth';
 import '@/assets/styles/main.scss';
 
 const config = {
-    apiKey: 'AIzaSyBVQZ51IsPsY37ul8ac_yneBOm9uHI3yI0',
-    authDomain: 'my-atu-edu-app.firebaseapp.com',
-    projectId: 'my-atu-edu-app',
-    storageBucket: 'my-atu-edu-app.appspot.com',
-    messagingSenderId: '591094852406',
-    appId: '1:591094852406:web:cca270a94307a94832a197',
-    measurementId: 'G-7J2E8YNDRQ',
+    apiKey: 'AIzaSyApXDk6PHKj-56Bm3sVxb8yIvnrlzsso3A',
+    authDomain: 'atu-edu.firebaseapp.com',
+    databaseURL: 'https://atu-edu-default-rtdb.firebaseio.com',
+    projectId: 'atu-edu',
+    storageBucket: 'atu-edu.appspot.com',
+    messagingSenderId: '33782984728',
+    appId: '1:33782984728:web:35e8499e08d755ebb3d36d',
+    measurementId: 'G-PQJQG3JPC6',
 };
 
 let app;

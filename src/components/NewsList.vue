@@ -1,13 +1,11 @@
 <script setup>
 // eslint-disable-next-line no-undef
-const props = defineProps({
+defineProps({
     listNews: {
         type: Array,
         default: () => [],
     },
 });
-
-console.log('list', props.listNews);
 </script>
 
 <template>
