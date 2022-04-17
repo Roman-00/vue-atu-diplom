@@ -1,9 +1,11 @@
 <script setup>
 import { onBeforeUnmount, ref, watch } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import Alert from '@/components/common/Alert.vue';
 
 const store = useStore();
+const router = useRouter();
 
 const name = ref('');
 const email = ref('');
@@ -45,6 +47,7 @@ async function handleSubmit() {
 
     try {
         await store.dispatch('signup', formData);
+        router.push('/index');
     } catch (e) {
         console.log(e);
     }

@@ -2,7 +2,7 @@
 
 <template>
     <div class="index">
-        123
+        Контент скоро будет доступен!
     </div>
 </template>
 

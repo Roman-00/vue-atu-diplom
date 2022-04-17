@@ -1,10 +1,18 @@
 <script setup>
 import LogInForm from '@/components/LogInForm.vue';
+
+/**
+ * Возврат по роуту
+ */
+function goBack() {
+    window.history.back();
+}
 </script>
 
 <template>
     <div class="login">
         <div class="login__header">
+            <button class="login__header-button" @click="goBack"/>
             <h2 class="login__title">
                 Войти в аккаунт
             </h2>
@@ -27,8 +35,22 @@ import LogInForm from '@/components/LogInForm.vue';
     overflow: hidden;
 
     &__header {
+        position: relative;
         padding: 26px 0;
         z-index: 2;
+    }
+
+    &__header-button {
+        @include reset-button;
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        width: 24px;
+        height: 24px;
+        padding: 10px;
+        border-radius: $radius-full;
+        background: $white url('../assets/icons/arrow-left.svg') no-repeat center center / 60%;
+        transform: translateY(-50%);
     }
 
     &__title {

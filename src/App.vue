@@ -7,16 +7,18 @@ import Footer from '@/components/Footer.vue';
 const route = useRoute();
 
 const title = computed(() => route.name);
-const showHeader = computed(() => route.path !== '/'
+const isHidden = computed(() => route.path !== '/'
     && route.path !== '/login' && route.path !== '/signup');
 
 </script>
 
 <template>
     <Header
-        v-if="showHeader"
+        v-if="isHidden"
         :title="title"
     />
     <router-view/>
-    <Footer />
+    <Footer
+        v-if="isHidden"
+    />
 </template>
