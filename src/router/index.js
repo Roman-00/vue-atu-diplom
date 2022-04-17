@@ -13,6 +13,11 @@ const routes = [
         component: () => import('../views/Index.vue'),
     },
     {
+        path: '/schedule',
+        name: 'Расписание',
+        component: () => import('../views/Schedule.vue'),
+    },
+    {
         path: '/signup',
         name: 'Зарегистрировать аккаунт',
         component: () => import('../views/SignUp.vue'),
