@@ -1,5 +1,13 @@
 <script setup></script>
 
 <template>
-    123
+    <div class="index">
+        123
+    </div>
 </template>
+
+<style scoped lang="scss">
+.index {
+    margin: 0 20px;
+}
+</style>

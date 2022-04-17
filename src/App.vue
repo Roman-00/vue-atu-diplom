@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 
 const route = useRoute();
 
@@ -17,4 +18,5 @@ const showHeader = computed(() => route.path !== '/'
         :title="title"
     />
     <router-view/>
+    <Footer />
 </template>

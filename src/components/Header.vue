@@ -35,6 +35,7 @@ function goBack() {
     justify-content: space-between;
     padding: 20px;
     margin-bottom: 22px;
+    background: $white;
 
     &__go-back {
         @include reset-button;

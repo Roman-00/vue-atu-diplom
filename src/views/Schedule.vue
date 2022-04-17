@@ -48,6 +48,8 @@ const currentTime = computed(() => date.getHours() < 12);
 
 <style scoped lang="scss">
 .schedule {
+    padding-bottom: 80px;
+
     &__header {
         margin: 0 20px;
         padding: 12px 20px;

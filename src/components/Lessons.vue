@@ -25,11 +25,12 @@ import LessonsList from '@/components/Lessons/LessonsList.vue';
 
     &__content-info {
         display: flex;
+        margin-bottom: 12px;
     }
 
     &__content-info-time,
     &__content-info-schedule {
-        margin-right: 12px;
+        margin-right: 6px;
         font-size: 14px;
         font-weight: $font-bold;
         line-height: 22px;
