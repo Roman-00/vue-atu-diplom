@@ -1,29 +1,29 @@
 <script setup>
-import SignUpForm from '@/components/SignUpForm.vue';
+import LogInForm from '@/components/LogInForm.vue';
 </script>
 
 <template>
-    <div class="signup">
-        <div class="signup__header">
-            <h2 class="signup__title">
-                Зарегистрироваться
+    <div class="login">
+        <div class="login__header">
+            <h2 class="login__title">
+                Войти в аккаунт
             </h2>
         </div>
 
-        <div class="signup__footer">
-            <SignUpForm />
+        <div class="login__footer">
+            <LogInForm />
         </div>
     </div>
 </template>
 
 <style scoped lang="scss">
-.signup {
+.login {
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
-    background: url('../assets/images/signup-images.jpg') no-repeat center 30% / contain;
+    background: url('../assets/images/login-image.jpg') no-repeat center center / contain;
     overflow: hidden;
 
     &__header {

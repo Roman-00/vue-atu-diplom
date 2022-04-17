@@ -5,7 +5,6 @@ import Alert from '@/components/common/Alert.vue';
 
 const store = useStore();
 
-const name = ref('');
 const email = ref('');
 const password = ref('');
 const isValid = ref(false);
@@ -14,7 +13,6 @@ const listError = ref([]);
 const closeTimeOut = ref(null);
 
 const formData = {
-    name: name.value,
     email,
     password,
 };
@@ -26,7 +24,6 @@ function validateInput() {
     if (email.value === '' || password.value === '') {
         isValid.value = false;
         isShowAlert.value = true;
-        if (name.value === '') listError.value.push('Введите Имя');
         if (email.value === '') listError.value.push('Введите ваш Email');
         if (password.value === '') listError.value.push('Введите ваш Пароль');
     } else {
@@ -44,7 +41,7 @@ async function handleSubmit() {
     if (!validateInput()) return;
 
     try {
-        await store.dispatch('signup', formData);
+        await store.dispatch('login', formData);
     } catch (e) {
         console.log(e);
     }
@@ -82,38 +79,29 @@ onBeforeUnmount(() => clear());
 
 <template>
     <form
-        class="signup-form"
+        class="login-form"
         @submit.prevent="handleSubmit"
     >
-        <div class="signup-form__input-group">
-            <input
-                v-model="name"
-                type="text"
-                class="signup-form__input"
-                placeholder="Введите ваше Имя"
-            />
-        </div>
-
-        <div class="signup-form__input-group">
+        <div class="login-form__input-group">
             <input
                 v-model="email"
                 type="email"
-                class="signup-form__input"
+                class="login-form__input"
                 placeholder="Введите свой Email"
             />
         </div>
 
-        <div class="signup-form__input-group">
+        <div class="login-form__input-group">
             <input
                 v-model="password"
                 type="password"
-                class="signup-form__input"
+                class="login-form__input"
                 placeholder="Введите свой Пароль"
             />
         </div>
 
-        <button class="signup-form__button">
-            Зарегистрироваться
+        <button class="login-form__button">
+            Войти
         </button>
     </form>
 
@@ -124,7 +112,7 @@ onBeforeUnmount(() => clear());
 </template>
 
 <style scoped lang="scss">
-.signup-form {
+.login-form {
     position: relative;
 
     &__input-group {

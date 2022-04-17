@@ -19,9 +19,9 @@ const config = {
     measurementId: 'G-PQJQG3JPC6',
 };
 
-let app;
-
 firebase.initializeApp(config);
+
+let app;
 
 firebase.auth().onAuthStateChanged(() => {
     if (!app) {
