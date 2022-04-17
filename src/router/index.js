@@ -8,6 +8,11 @@ const routes = [
         component: Preview,
     },
     {
+        path: '/index',
+        name: 'Главная',
+        component: () => import('../views/Index.vue'),
+    },
+    {
         path: '/signup',
         name: 'Зарегистрировать аккаунт',
         component: () => import('../views/SignUp.vue'),
