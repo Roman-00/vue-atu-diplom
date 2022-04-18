@@ -1,0 +1,23 @@
+[
+	{
+		"id": 12,
+		"title": "День кафедры",
+		"description": "14 апреля 2022 года в актовом зале 2Б корпуса Алматинского технологического университета...",
+		"images": "https://atu.edu.kz/wp-content/uploads/2022/04/News-Photo-40097.jpeg",
+		"link": "https://atu.edu.kz/archives/50247"
+	},
+	{
+		"id": 11,
+		"title": "Завершилась Республиканская предметная олимпиада...",
+		"description": "Сегодня завершилась Республиканская предметная олимпиада среди студентов ВУЗов Казахстана...",
+		"images": "https://atu.edu.kz/wp-content/uploads/2022/04/News-Photo-40089.jpeg",
+		"link": "https://atu.edu.kz/archives/50247"
+	},
+	{
+		"id": 15,
+		"title": "Награждение ученых АТУ",
+		"description": "Сегодня, 12 апреля 2022 года, в АТУ прошло торжественное заседание Ректората, посвященное Дню науки.",
+		"images": "https://atu.edu.kz/wp-content/uploads/2022/04/News-Photo-40097.jpeg",
+		"link": "https://atu.edu.kz/archives/50247"
+	}
+]

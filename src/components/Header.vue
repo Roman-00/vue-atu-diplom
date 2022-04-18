@@ -20,9 +20,7 @@ function goBack() {
             {{ title }}
         </h2>
 
-        <div class="header__user">
-            Roman
-        </div>
+        <router-link to="/account" class="header__user" />
     </header>
 </template>
 
@@ -54,9 +52,12 @@ function goBack() {
     }
 
     &__user {
-        font-size: 14px;
-        font-weight: $font-semi;
-        line-height: 20px;
+        display: block;
+        width: 28px;
+        height: 28px;
+        border-radius: $radius-full;
+        background:
+            $white-smoke url('../assets/images/account-face.png') no-repeat center center / cover;
     }
 }
 </style>
