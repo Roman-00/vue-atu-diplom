@@ -1,8 +1,10 @@
-<script setup></script>
+<script setup>
+import News from '@/components/News.vue';
+</script>
 
 <template>
     <div class="index">
-        123
+        <News />
     </div>
 </template>
 

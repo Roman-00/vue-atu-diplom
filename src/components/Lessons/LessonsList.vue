@@ -5,7 +5,6 @@ import { useStore } from 'vuex';
 const store = useStore();
 
 const listLessons = computed(() => store.getters.allLessons);
-console.log(listLessons.value);
 </script>
 
 <template>
