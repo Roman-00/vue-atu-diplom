@@ -1,8 +1,13 @@
 /*---------- Font-Weight Variables ----------*/
-$font-normal: 400;
+$font-thin: 100;
+$font-extra-light: 200;
+$font-light: 300;
+$font-normal: normal;
 $font-medium: 500;
-$font-semi: 600;
-$font-bold: 700;
+$font-semi-bold: 600;
+$font-bold: bold;
+$font-extra-bold: 800;
+$font-black: 900;
 
 /*---------- Border-Radius Variables ----------*/
 $radius-small: 4px;
@@ -11,18 +16,18 @@ $radius-large: 16px;
 $radius-full: 100%;
 
 /*---------- Colors Variables ----------*/
-$blue-primary: #2a81dd;
-$yellow-primary: #ffdb00;
+$blue-primary: #3f8ae0;
+$black-primary: #000000;
+
+$text-color: #000000;
+$border-color: #d7d8d9;
+$active-tabs: #2975cc;
+$inactive-tabs: #99a2ad;
 
 $black: #000000;
 $white: #ffffff;
-$lavender: #f0eaff;
-$white-smoke: #f1f3fd;
-$gray-silver: #b4b2be;
-
-$text-color: #43444a;
-$text-blue-color: #1d1d41;
-$text-gray-color: #a5a5a5;
+$gray: #99a2ad;
+$steel-gray: #edeef0;
 
 /*---------- Media-Size Variables ----------*/
 $max-size: 768px;

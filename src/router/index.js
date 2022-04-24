@@ -1,16 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Preview from '@/views/Preview.vue';
+import Index from '@/views/Index.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'Preview',
-        component: Preview,
-    },
-    {
-        path: '/index',
         name: 'Главная',
-        component: () => import('../views/Index.vue'),
+        component: Index,
     },
     {
         path: '/schedule',
@@ -18,19 +13,19 @@ const routes = [
         component: () => import('../views/Schedule.vue'),
     },
     {
+        path: '/messages',
+        name: 'Сообщения',
+        component: () => import('../views/Messages.vue'),
+    },
+    {
         path: '/account',
-        name: 'Личный кабинет',
+        name: 'Профиль',
         component: () => import('../views/Account.vue'),
     },
     {
-        path: '/signup',
-        name: 'Зарегистрировать аккаунт',
-        component: () => import('../views/SignUp.vue'),
-    },
-    {
-        path: '/login',
-        name: 'Войти в Аккаунт',
-        component: () => import('../views/LogIn.vue'),
+        path: '/posts/:id',
+        name: 'Детальная',
+        component: () => import('../views/PostIdPage.vue'),
     },
     // {
     //     path: '/login',

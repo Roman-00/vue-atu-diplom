@@ -1,15 +1,18 @@
 <script setup>
-import News from '@/components/News.vue';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import PostList from '@/components/PostList.vue';
 </script>
 
 <template>
     <div class="index">
-        <News />
+        <div class="container-sm">
+            <PostList />
+        </div>
     </div>
 </template>
 
 <style scoped lang="scss">
 .index {
-    margin: 0 20px;
+    padding: 20px 0;
 }
 </style>
