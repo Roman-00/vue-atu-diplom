@@ -1,67 +1,47 @@
 <script setup>
 // eslint-disable-next-line no-undef
 defineProps({
-    isActive: Boolean,
-    title: String,
+    isScroll: Boolean,
+    title: {
+        type: String,
+        default: '',
+    },
 });
-
-/**
- * Возвращаемся назад
- */
-const goBack = () => {
-    window.history.back();
-};
 </script>
 
 <template>
     <header
         class="header"
-        :class="{'header--active' : isActive}"
+        :class="{ 'header--scroll' : isScroll}"
     >
-        <div class="container">
-            <button class="header__go-back" @click="goBack"/>
-
-            <h2 class="header__title">
-                {{ title }}
-            </h2>
-        </div>
+        <h2 class="header__title">
+            {{ title }}
+        </h2>
     </header>
 </template>
 
 <style scoped lang="scss">
 .header {
-    position: sticky;
+    position:  sticky;
     top: 0;
     left: 0;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 52px;
+    min-height: 44px;
     background: $white;
-
-    &--active {
-        border-bottom: 1px solid $border-color;
-    }
-
-    &__go-back {
-        @include reset-button;
-
-        position: absolute;
-        top: 50%;
-        display: block;
-        width: 20px;
-        min-height: 28px;
-        background: url('../assets/icons/back-icon.svg') no-repeat center center;
-        transform: translateY(-50%);
-    }
+    z-index: 99;
 
     &__title {
-        font-size: 21px;
-        font-weight: $font-normal;
-        line-height: 26px;
-        text-align: center;
+        font-size: 0.875rem;
+        font-weight: $font-regular;
+        line-height: 24px;
         color: $text-color;
+    }
+
+    &--scroll {
+        box-shadow: 0 2px 4px rgba($black-primary, 0.1);
     }
 }
 </style>

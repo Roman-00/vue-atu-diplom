@@ -1,148 +1,31 @@
 @font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Black.woff2') format('woff2'),
-	url('/fonts/TTCommons-Black.woff') format('woff');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Bold.woff2') format('woff2'),
-	url('/fonts/TTCommons-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Regular.woff2') format('woff2'),
-	url('/fonts/TTCommons-Regular.woff') format('woff');
+	font-family: 'Open Sans';
+	src: url('/fonts/OpenSans-Regular.woff2') format('woff2'),
+	url('/fonts/OpenSans-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-ExtraBold.woff2') format('woff2'),
-	url('/fonts/TTCommons-ExtraBold.woff') format('woff');
+	font-family: 'Open Sans';
+	src: url('/fonts/OpenSans-SemiBold.woff2') format('woff2'),
+	url('/fonts/OpenSans-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('/fonts/OpenSans-Bold.woff2') format('woff2'),
+	url('/fonts/OpenSans-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('/fonts/OpenSans-ExtraBold.woff2') format('woff2'),
+	url('/fonts/OpenSans-ExtraBold.woff') format('woff');
 	font-weight: 800;
 	font-style: normal;
 }
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-ExtraLight.woff2') format('woff2'),
-	url('/fonts/TTCommons-ExtraLight.woff') format('woff');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Thin.woff2') format('woff2'),
-	url('/fonts/TTCommons-Thin.woff') format('woff');
-	font-weight: 100;
-	font-style: normal;
-}
-
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Medium.woff2') format('woff2'),
-	url('/fonts/TTCommons-Medium.woff') format('woff');
-	font-weight: 500;
-	font-style: normal;
-}
-
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-Light.woff2') format('woff2'),
-	url('/fonts/TTCommons-Light.woff') format('woff');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'TT Commons';
-	src: url('/fonts/TTCommons-DemiBold.woff2') format('woff2'),
-	url('/fonts/TTCommons-DemiBold.woff') format('woff');
-	font-weight: 600;
-	font-style: normal;
-}
-
-/*---------- SF PRO TEXT ----------*/
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Medium.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Medium.woff') format('woff');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Heavy.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Heavy.woff') format('woff');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Thin.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Thin.woff') format('woff');
-	font-weight: 100;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Light.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Light.woff') format('woff');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Bold.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Bold.woff') format('woff');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Black.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Black.woff') format('woff');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Ultralight.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Ultralight.woff') format('woff');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Semibold.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Semibold.woff') format('woff');
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'SF Pro Display';
-	src: url('/fonts/SFProDisplay-Regular.woff2') format('woff2'),
-	url('/fonts/SFProDisplay-Regular.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
-}
-
-

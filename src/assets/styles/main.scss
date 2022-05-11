@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
-
 @import 'fonts';
 @import 'variables';
 @import 'mixins';
+@import 'normalize';
 
 *, *::before, *::after {
 	box-sizing: border-box;
@@ -18,10 +17,9 @@ html {
 }
 
 body {
-	font-family: 'TT Commons', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1rem;
-	font-weight: $font-normal;
-	background: $steel-gray;
+	font-weight: $font-regular;
 	color: $text-color;
 }
 

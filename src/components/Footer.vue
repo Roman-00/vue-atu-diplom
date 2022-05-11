@@ -1,56 +1,47 @@
 <script setup>
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-const tabsList = [
+const navList = [
     {
-        id: 'news',
-        class: 'footer__tabs-item-icon-news',
-        name: 'Новости',
-        path: '/',
+        id: 'home',
+        to: '/index',
+        exact: true,
     },
     {
         id: 'schedule',
-        class: 'footer__tabs-item-icon-schedule',
-        name: 'Расписание',
-        path: '/schedule',
+        to: '/schedule',
+        exact: true,
     },
     {
         id: 'messages',
-        class: 'footer__tabs-item-icon-messages',
-        name: 'Сообщения',
-        path: '/messages',
+        to: '/messages',
+        exact: true,
     },
     {
-        id: 'account',
-        class: 'footer__tabs-item-icon-account',
-        name: 'Профиль',
-        path: '/account',
+        id: 'user',
+        to: '/user',
+        exact: true,
     },
 ];
 </script>
 
 <template>
     <footer class="footer">
-        <div class="container">
-            <div class="footer__tabs">
-                <router-link
-                    v-for="tabs in tabsList"
-                    :key="tabs.id"
-                    :to="tabs.path"
-                    class="footer__tabs-item"
-                    active-class="footer__tabs-item--active"
-                    exact
+        <nav class="nav footer-nav">
+            <ul class="nav-list">
+                <li
+                    v-for="item in navList"
+                    :key="item.id"
+                    class="nav-list__item"
                 >
-                    <i
-                        class="footer__tabs-item-icon"
-                        :class="tabs.class"
+                    <router-link
+                        :to="item.to"
+                        :exact="item.exact"
+                        :active-class="`nav-list__item-link-${item.id}--active`"
+                        class="nav-list__item-link"
+                        :class="`nav-list__item-link-${item.id}`"
                     />
-                    <span class="footer__tabs-item-name">
-                        {{ tabs.name }}
-                    </span>
-                </router-link>
-            </div>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </footer>
 </template>
 
@@ -61,73 +52,122 @@ const tabsList = [
     right: 0;
     bottom: 0;
     width: 100%;
-    max-height: 49px;
-    padding: 5px 2px;
-    border-top: 1px solid $border-color;
+    min-height: 66px;
+    padding: 21px 28px;
+    border-radius: $radius-large $radius-large 0 0;
     background: $white;
+    box-shadow: 0 -2px 20px rgba($black-primary, 0.1);
+    z-index: 999;
+}
 
-    &__tabs {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-    &__tabs-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        font-family: 'SF Pro Display', sans-serif;
-        color: $inactive-tabs;
-        text-decoration: none;
-    }
-
-    &__tabs-item-icon {
+    &__item-link {
+        position: relative;
         display: block;
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
     }
 
-    &__tabs-item-icon-news {
-        background: url('../assets/icons/news.svg') no-repeat center center / cover;
+    &__item-link-home {
+        background: url('../assets/icons/home.svg') no-repeat center center / cover;
+
+        &--active {
+            background: url('../assets/icons/home-active.svg') no-repeat center center / cover;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -5px;
+                width: 6px;
+                height: 6px;
+                border-radius: $radius-full;
+                background: $blue-primary;
+            }
+        }
     }
 
-    &__tabs-item-icon-schedule {
-        background: url('../assets/icons/services.svg') no-repeat center center / cover;
+    &__item-link-schedule {
+        background: url('../assets/icons/schedule.svg') no-repeat center center / cover;
+
+        &--active {
+            background: url('../assets/icons/schedule-active.svg') no-repeat center center / cover;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -4px;
+                right: -8px;
+                width: 6px;
+                height: 6px;
+                border-radius: $radius-full;
+                background: $blue-primary;
+            }
+        }
     }
 
-    &__tabs-item-icon-messages {
+    &__item-link-favorites {
+        background: url('../assets/icons/favorites.svg') no-repeat center center / cover;
+
+        &--active {
+            background: url('../assets/icons/favorites-active.svg') no-repeat center center / cover;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -5px;
+                width: 6px;
+                height: 6px;
+                border-radius: $radius-full;
+                background: $blue-primary;
+            }
+        }
+    }
+
+    &__item-link-messages {
         background: url('../assets/icons/messages.svg') no-repeat center center / cover;
-    }
 
-    &__tabs-item-icon-account {
-        background: url('../assets/icons/user.svg') no-repeat center center / cover;
-    }
-
-    &__tabs-item-name {
-        font-size: 10px;
-        font-weight: $font-medium;
-        line-height: 12px;
-        letter-spacing: 0.12px;
-    }
-
-    &__tabs-item--active {
-        color: $active-tabs;
-
-        .footer__tabs-item-icon-news {
-            background: url('../assets/icons/news-active.svg') no-repeat center center / cover;
-        }
-
-        .footer__tabs-item-icon-schedule {
-            background: url('../assets/icons/services-active.svg') no-repeat center center / cover;
-        }
-
-        .footer__tabs-item-icon-messages {
+        &--active {
             background: url('../assets/icons/messages-active.svg') no-repeat center center / cover;
-        }
 
-        .footer__tabs-item-icon-account {
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -5px;
+                width: 6px;
+                height: 6px;
+                border-radius: $radius-full;
+                background: $blue-primary;
+            }
+        }
+    }
+
+    &__item-link-user {
+        background: url('../assets/icons/user.svg') no-repeat center center / cover;
+
+        &--active {
             background: url('../assets/icons/user-active.svg') no-repeat center center / cover;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -5px;
+                width: 6px;
+                height: 6px;
+                border-radius: $radius-full;
+                background: $blue-primary;
+            }
         }
     }
 }
