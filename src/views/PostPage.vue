@@ -6,16 +6,18 @@ import { useRoute } from 'vue-router';
 const store = useStore();
 const route = useRoute();
 
-const path = computed(() => route.path.replace('/posts/', ''));
+const path = computed(() => route.path.repeat('/posts/', ''));
 
 onMounted(() => {
-    store.dispatch('getPost', path.value);
+    // store.dispatch('getPost', path.value);
 });
 
+const data = computed(() => store.getters.postData);
+console.log(data, path);
 </script>
 
 <template>
     <div class="post-page">
-        Hello World
+        123
     </div>
 </template>
