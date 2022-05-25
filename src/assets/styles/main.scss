@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
-
+@import 'fonts';
 @import 'variables';
 @import 'mixins';
+@import 'normalize';
 
 *, *::before, *::after {
 	box-sizing: border-box;
@@ -17,12 +17,10 @@ html {
 }
 
 body {
-	width: $max-size;
-	max-width: 100%;
-	margin: 0 auto;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1rem;
-	font-weight: 400;
+	font-weight: $font-regular;
+	color: $text-color;
 }
 
 img {
@@ -37,8 +35,4 @@ h1, h2, h3, h4, h5, h6, p {
 figure {
 	margin: 0;
 	padding: 0;
-}
-
-.container {
-	padding: 0 20px;
 }

@@ -1,95 +1,135 @@
 <script setup>
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
-import Lessons from '@/components/Lessons.vue';
-import { months, days } from '../helpers/date';
+import { months, days } from '@/helpers/date';
+import ScheduleList from '@/components/schedule/ScheduleList.vue';
 
 const store = useStore();
+
 const date = new Date();
 const fullDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
-onMounted(() => {
-    store.dispatch('getLessons');
-});
-
 const currentDay = computed(() => days[date.getDay()]);
 const currentTime = computed(() => date.getHours() < 12);
-// const listLessons = computed(() => store.getters.allLessons);
+
+onMounted(() => {
+    store.dispatch('getSchedule');
+});
+
+const schedule = computed(() => store.getters.allSchedule);
 </script>
 
 <template>
     <div class="schedule">
-        <div class="schedule__header">
-            <div class="schedule__header-date">
-                <div class="schedule__header-date-info">
-                    <span class="schedule__header-date-full">
-                        {{ fullDate }}
-                    </span>
+        <div class="schedule__block-date">
+            <div class="schedule__block-date-wrapper">
+                 <span class="schedule__block-date-full">
+                    {{ fullDate }}
+                 </span>
+                 <span class="schedule__block-date-cur-day">
+                    {{ currentDay }}
+                 </span>
+            </div>
 
-                    <span class="schedule__header-date-days">
-                        {{ currentDay }}
-                    </span>
+            <img
+                v-if="currentTime"
+                src="@/assets/icons/sun.svg"
+                alt="Добрый день!"
+                class="schedule__block-date-images"
+            />
+            <img
+                v-else
+                src="@/assets/icons/moon.svg"
+                alt="Добрый вечер!"
+                class="schedule__block-date-images"
+            />
+        </div>
+
+        <div class="schedule__block">
+            <div class="row">
+                <div class="col-30">
+                     <span class="schedule__block-time">
+                        Время
+                     </span>
                 </div>
 
-                <div
-                    v-if="currentTime"
-                    class="schedule__header-date-images schedule__header-date-images-day"
-                />
-                <div
-                    v-else-if="!currentTime"
-                    class="schedule__header-date-images schedule__header-date-images-evening"
-                />
+                <div class="col-70">
+                     <span class="schedule__block-sh">
+                        Занятие
+                     </span>
+                </div>
             </div>
         </div>
 
-        <Lessons />
+        <ScheduleList
+            :schedule="schedule"
+        />
     </div>
 </template>
 
 <style scoped lang="scss">
 .schedule {
-    padding-bottom: 80px;
+    position: relative;
+    padding: 20px 20px 60px;
 
-    &__header {
-        margin: 0 20px;
-        padding: 12px 20px;
-        border-radius: $radius-medium;
-        box-shadow: 0 5px 17px -9px rgba(0, 0, 0, 0.2);
+    &__block {
+        margin-bottom: 20px;
     }
 
-    &__header-date {
+    &__block-date {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 22px;
     }
 
-    &__header-date-full {
+    &__block-date-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__block-date-full {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 14px;
         font-size: 14px;
-        font-weight: $font-semi;
-        line-height: 22px;
-        color: $gray-silver;
+        font-weight: $font-regular;
+        line-height: 20px;
+        color: rgba($black-primary, 0.5);
     }
 
-    &__header-date-days {
-        font-size: 18px;
-        font-weight: $font-bold;
-        line-height: 28px;
+    &__block-date-cur-day {
+        display: block;
+        font-size: 16px;
+        font-weight: $font-semi-bold;
+        line-height: 24px;
     }
 
-    &__header-date-images {
-        width: 52px;
-        height: 52px;
-        border-radius: $radius-full;
+    &__block-date-images {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
     }
 
-    &__header-date-images-day {
-        background: $white url('../assets/images/sun-day.jpg') no-repeat center center/ cover;
+    &__block-time,
+    &__block-sh {
+       display: block;
+        font-size: 16px;
+        font-weight: $font-regular;
+        line-height: 24px;
     }
 
-    &__header-date-images-evening {
-        background: $white url('../assets/images/night-day.jpg') no-repeat center center/ cover;
+    .row {
+        display: flex;
+    }
+
+    .col-30 {
+        width: 100%;
+        max-width: 30%;
+    }
+
+    .col-70 {
+        width: 100%;
+        max-width: 70%;
     }
 }
 </style>

@@ -1,24 +1,82 @@
 <script setup>
-import { computed } from 'vue';
+import {
+    computed,
+    onBeforeUnmount, onMounted, onUnmounted, ref, watch,
+} from 'vue';
 import { useRoute } from 'vue-router';
+import debounce from 'lodash/debounce';
+import PreviewLoader from '@/components/PreviewLoader.vue';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 
 const route = useRoute();
 
-const title = computed(() => route.name);
-const isHidden = computed(() => route.path !== '/'
-    && route.path !== '/login' && route.path !== '/signup');
+const isShow = ref(false);
+const isScroll = ref(false);
+const closeTimeout = ref(null);
 
+const LOADER_SHOW_DURATION = 3000;
+
+/**
+ * Получаем title роутов, для перехода
+ */
+const title = computed(() => route.name);
+
+/**
+ * Отображаем header & footer только на страницах
+ */
+const hidden = computed(() => route.path !== '/');
+
+/**
+ * Добавляем тень для header при скролле
+ */
+const scrollHeader = debounce(() => {
+    isScroll.value = window.scrollY > 5;
+}, 16);
+
+/**
+ * Сбрасываем TimeOut
+ */
+const clear = () => {
+    if (closeTimeout.value) {
+        clearTimeout(closeTimeout);
+        closeTimeout.value = null;
+    }
+};
+
+watch(isShow, (currentValue) => {
+    if (currentValue) {
+        closeTimeout.value = setTimeout(() => {
+            isShow.value = false;
+            clear();
+        }, LOADER_SHOW_DURATION);
+    }
+});
+
+onMounted(() => {
+    window.addEventListener('scroll', scrollHeader);
+    isShow.value = true;
+});
+
+onBeforeUnmount(() => {
+    clear();
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', scrollHeader);
+});
 </script>
 
 <template>
     <Header
-        v-if="isHidden"
+        v-if="hidden"
+        :is-scroll="isScroll"
         :title="title"
     />
     <router-view/>
     <Footer
-        v-if="isHidden"
+        v-if="hidden"
     />
+
+    <PreviewLoader v-if="isShow" />
 </template>

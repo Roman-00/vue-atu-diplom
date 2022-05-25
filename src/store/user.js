@@ -1,24 +1,27 @@
 import axios from 'axios';
 
-const url = 'https://atu-edu-default-rtdb.firebaseio.com/schedule.json';
+const url = 'https://atu-edu-default-rtdb.firebaseio.com/user.json';
 
 export default {
     state: {
-        schedule: [],
+        user: {},
     },
     mutations: {
-        setScheduleToState: (state, responce) => {
-            state.schedule = responce;
+        setUserInfoToState: (state, responce) => {
+            state.user = responce;
         },
     },
     actions: {
-        getSchedule({ commit }) {
+        /**
+         * Получаем данные user
+         */
+        getUserInfo({ commit }) {
             return axios.get(url, {
                 method: 'GET',
             })
                 .then((responce) => {
                     if (responce.status === 200) {
-                        commit('setScheduleToState', responce.data);
+                        commit('setUserInfoToState', responce.data);
                     } else {
                         throw new Error(`Could not fetch ${url}, status: ${responce.status}`);
                     }
@@ -29,8 +32,8 @@ export default {
         },
     },
     getters: {
-        allSchedule(state) {
-            return state.schedule;
+        userInfo(state) {
+            return state.user;
         },
     },
 };

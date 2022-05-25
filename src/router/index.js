@@ -1,36 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Preview from '@/views/Preview.vue';
+import Auth from '@/views/Auth.vue';
 
 const routes = [
     {
         path: '/',
-        name: 'Preview',
-        component: Preview,
+        name: 'Страница Авторизации',
+        component: Auth,
     },
     {
         path: '/index',
-        name: 'Главная',
-        component: () => import('../views/Index.vue'),
+        name: 'Система Универ',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Index.vue'),
     },
     {
         path: '/schedule',
-        name: 'Расписание',
-        component: () => import('../views/Schedule.vue'),
+        name: 'Расписание занятий',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Schedule.vue'),
     },
     {
-        path: '/account',
+        path: '/user',
         name: 'Личный кабинет',
-        component: () => import('../views/Account.vue'),
-    },
-    {
-        path: '/signup',
-        name: 'Зарегистрировать аккаунт',
-        component: () => import('../views/SignUp.vue'),
-    },
-    {
-        path: '/login',
-        name: 'Войти в Аккаунт',
-        component: () => import('../views/LogIn.vue'),
+        component: () => import(/* webpackChunkName: "about" */ '../views/User.vue'),
     },
     // {
     //     path: '/login',
