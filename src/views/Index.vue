@@ -29,7 +29,7 @@ const posts = computed(() => store.getters.allPosts);
                 посетить наш сайт.
             </p>
 
-            <a href="#" target="_blank" class="index-banner__link-to-web">
+            <a href="https://atu.edu.kz/" target="_blank" class="index-banner__link-to-web">
                 Посетить
             </a>
         </div>

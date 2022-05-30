@@ -1,4 +1,11 @@
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const isShow = computed(() => route.path !== '/index');
+
 // eslint-disable-next-line no-undef
 defineProps({
     isScroll: Boolean,
@@ -7,6 +14,13 @@ defineProps({
         default: '',
     },
 });
+
+/**
+ * Вернуться назад
+ */
+function goBack() {
+    window.history.back();
+}
 </script>
 
 <template>
@@ -14,6 +28,14 @@ defineProps({
         class="header"
         :class="{ 'header--scroll' : isScroll}"
     >
+        <button
+            v-if="isShow"
+            class="header__go-back"
+            @click="goBack"
+        >
+            назад
+        </button>
+
         <h2 class="header__title">
             {{ title }}
         </h2>
@@ -38,6 +60,22 @@ defineProps({
         font-weight: $font-regular;
         line-height: 24px;
         color: $text-color;
+    }
+
+    &__go-back {
+        @include reset-button;
+
+        position: absolute;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+        line-height: 20px;
+        border-radius: $radius-large;
+        background: $light-blue;
     }
 
     &--scroll {

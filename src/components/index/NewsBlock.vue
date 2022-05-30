@@ -20,6 +20,7 @@ defineProps({
                 v-for="post in posts"
                 :key="post.id"
                 class="news-block__list-item"
+                @click="$router.push(`/post/${post.id}`)"
             >
                 <img
                     v-if="post.images"
@@ -38,7 +39,7 @@ defineProps({
 
                 <div class="news-block__list-item-interface">
                     <span class="news-block__list-item-date">
-                        29.04.2020
+                        30.05.2022
                     </span>
                 </div>
             </li>

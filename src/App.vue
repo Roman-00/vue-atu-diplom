@@ -8,12 +8,14 @@ import debounce from 'lodash/debounce';
 import PreviewLoader from '@/components/PreviewLoader.vue';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import Modal from '@/components/Modal.vue';
 
 const route = useRoute();
 
 const isShow = ref(false);
 const isScroll = ref(false);
 const closeTimeout = ref(null);
+const showModal = ref(false);
 
 const LOADER_SHOW_DURATION = 3000;
 
@@ -65,6 +67,13 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
     window.removeEventListener('scroll', scrollHeader);
 });
+
+/**
+ * Обновляем состояние модального окна точнеее его view
+ */
+function updateStateModal() {
+    showModal.value = !showModal.value;
+}
 </script>
 
 <template>
@@ -79,4 +88,5 @@ onUnmounted(() => {
     />
 
     <PreviewLoader v-if="isShow" />
+    <Modal v-if="!showModal" @close="updateStateModal"/>
 </template>

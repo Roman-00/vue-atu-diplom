@@ -11,11 +11,6 @@ const navList = [
         exact: true,
     },
     {
-        id: 'messages',
-        to: '/messages',
-        exact: true,
-    },
-    {
         id: 'user',
         to: '/user',
         exact: true,

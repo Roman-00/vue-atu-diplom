@@ -10,7 +10,7 @@ const date = new Date();
 const fullDate = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 
 const currentDay = computed(() => days[date.getDay()]);
-const currentTime = computed(() => date.getHours() < 12);
+const currentTime = computed(() => date.getHours() < 15);
 
 onMounted(() => {
     store.dispatch('getSchedule');

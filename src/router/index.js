@@ -13,6 +13,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Index.vue'),
     },
     {
+        path: '/post/:id',
+        name: 'Страница поста',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PostPage.vue'),
+    },
+    {
         path: '/schedule',
         name: 'Расписание занятий',
         component: () => import(/* webpackChunkName: "about" */ '../views/Schedule.vue'),
@@ -22,14 +27,6 @@ const routes = [
         name: 'Личный кабинет',
         component: () => import(/* webpackChunkName: "about" */ '../views/User.vue'),
     },
-    // {
-    //     path: '/login',
-    //     name: 'Войти в Аккаунт',
-    //     // route level code-splitting
-    //     // this generates a separate chunk (about.[hash].js) for this route
-    //     // which is lazy-loaded when the route is visited.
-    //     component: () => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
-    // },
 ];
 
 const router = createRouter({
