@@ -13,6 +13,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/Index.vue'),
     },
     {
+        path: '/post/:id',
+        name: 'Страница поста',
+        component: () => import(/* webpackChunkName: "about" */ '../views/PostPage.vue'),
+    },
+    {
         path: '/schedule',
         name: 'Расписание занятий',
         component: () => import(/* webpackChunkName: "about" */ '../views/Schedule.vue'),
